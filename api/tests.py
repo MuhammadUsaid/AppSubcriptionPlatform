@@ -210,7 +210,7 @@ class AppAPITestCase(TestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_unauthorized_access(self):
-        self.client.credentials()  # Remove token authentication
+        self.client.credentials()
         response = self.client.get(self.app_url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
