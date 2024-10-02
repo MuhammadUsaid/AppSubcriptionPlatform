@@ -46,14 +46,9 @@ python manage.py test api
 
 ### Deployment on Docker
 
-1. Build:
+1. Build and run the container:
 ```
-docker-compose build
-```
-
-2. Run the container:
-```
-docker-compose up
+docker-compose up  --build
 ```
 The app will be running at `http://0.0.0.0:8000`
 
@@ -145,7 +140,12 @@ Here are the available API endpoints and instructions on how to use them:
        "plan": "STANDARD"
      }
      ```
+   - Valid values are "FREE", "PRO" and "STANDARD"
    - Expected response: Updated subscription details
+10. **Unsubscribe App**
+   - URL: `DELETE http://127.0.0.1:8000/app/sub/{app_id}/`
+   - Headers: `Authorization: token your_auth_token`
+   - Expected response: Unsubscribed from the app
 
 Note: Replace `your_auth_token`, `your_username`, `your_password`, `your_email@example.com`, `{app_id}`, and other placeholder values with actual data when making requests.
 
