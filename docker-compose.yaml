@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    command: gunicorn --bind 0.0.0.0:8000 backend_app.wsgi:application
+    command: sh -c "python manage.py migrate && gunicorn --bind 0.0.0.0:8000 backend_app.wsgi:application"
     volumes:
       - .:/app
     ports:
